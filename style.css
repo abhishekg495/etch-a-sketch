@@ -1,28 +1,41 @@
+*{
+    box-sizing: border-box;
+}
 body {
+    height: 100vh;
 	font-family: "Roboto", sans-serif;
-	padding: 1em;
 	display: flex;
 	justify-content: center;
 	align-items: center;
 	flex-direction: column;
 }
 
+label{
+    display:inline-block;
+    width: 100%;
+    text-align: center;
+}
+.slider{
+    width:100%;
+}
+
 .game-container {
 	display: grid;
-	grid-template-columns: 1fr 3fr;
+	grid-template-columns: 1fr 2fr;
 	gap: 1em;
-	border: 1px solid red;
-	height: 500px;
+	/* border: 1px solid red; */
 }
 
 .canvas {
 	border: 1px solid black;
 	display: grid;
+    aspect-ratio: 1/1;
 }
 .pixel {
 	border: 1px solid black;
+    aspect-ratio: 1/1;
 }
 
 .menu {
-	border: 1px solid blue;
+	/* border: 1px solid blue; */
 }
