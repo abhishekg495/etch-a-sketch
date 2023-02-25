@@ -63,4 +63,6 @@ toggleGridLines.addEventListener("click", () => {
 	updateGridLines();
 });
 
+clearBtn.addEventListener("click", clearCanvas);
+
 updateCanvas();
