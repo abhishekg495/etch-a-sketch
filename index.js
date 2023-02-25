@@ -16,21 +16,21 @@ function getRandomColor() {
 		Math.random() * 256
 	)},${Math.floor(Math.random() * 256)})`;
 }
-
+function colorPixel(pixel) {
+	pixel.style.backgroundColor = colors[colorMode % 3];
+	if (colorMode == 3)
+		pixels.forEach(
+			(pixel) => (pixel.style.backgroundColor = colors[colorMode % 3])
+		);
+	if (colorMode == 1) colors[colorMode] = getRandomColor();
+}
 function createPixel() {
 	let pixel = document.createElement("div");
 	pixel.classList.add("pixel");
 	pixel.addEventListener("mouseover", (e) => {
-		if (e.buttons == 1 || e.buttons == 3) {
-			e.target.style.backgroundColor = `${colors[colorMode]}`;
-			if (colorMode == 1) colors[colorMode] = getRandomColor();
-		}
+		if (e.buttons == 1 || e.buttons == 3) colorPixel(e.target);
 	});
-	pixel.addEventListener("click", (e) => {
-		console.log(colors[colorMode]);
-		e.target.style.backgroundColor = `${colors[colorMode]}`;
-		if (colorMode == 1) colors[colorMode] = getRandomColor();
-	});
+	pixel.addEventListener("click", (e) => colorPixel(e.target));
 	return pixel;
 }
 function updateGridLines() {
