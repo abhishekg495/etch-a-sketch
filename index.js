@@ -2,21 +2,34 @@ const canvas = document.querySelector(".canvas");
 const gridSizeSlider = document.querySelector("#grid-size");
 const gridSizeLabel = document.querySelector("label[for='grid-size']");
 const toggleGridLines = document.querySelector("#grid-lines");
+const modeBtns = document.querySelectorAll(".mode-btn");
+let colorMode = 0;
+let colors = ["black", getRandomColor(), "white"];
 let gridLines = false;
 const clearBtn = document.querySelector("#clear-canvas");
 let pixels = document.querySelectorAll(".pixel");
 let gridSize = gridSizeSlider.value;
 gridSizeLabel.textContent = `Grid Size: ${gridSize}`;
 
+function getRandomColor() {
+	return `rgb(${Math.floor(Math.random() * 256)},${Math.floor(
+		Math.random() * 256
+	)},${Math.floor(Math.random() * 256)})`;
+}
+
 function createPixel() {
 	let pixel = document.createElement("div");
 	pixel.classList.add("pixel");
 	pixel.addEventListener("mouseover", (e) => {
-		if (e.buttons == 1 || e.buttons == 3)
-			e.target.style.backgroundColor = "black";
+		if (e.buttons == 1 || e.buttons == 3) {
+			e.target.style.backgroundColor = `${colors[colorMode]}`;
+			if (colorMode == 1) colors[colorMode] = getRandomColor();
+		}
 	});
 	pixel.addEventListener("click", (e) => {
-		e.target.style.backgroundColor = "black";
+		console.log(colors[colorMode]);
+		e.target.style.backgroundColor = `${colors[colorMode]}`;
+		if (colorMode == 1) colors[colorMode] = getRandomColor();
 	});
 	return pixel;
 }
@@ -64,5 +77,14 @@ toggleGridLines.addEventListener("click", () => {
 });
 
 clearBtn.addEventListener("click", clearCanvas);
+
+modeBtns.forEach((btn) => {
+	btn.addEventListener("click", (e) => {
+		modeBtns.forEach((btn) => btn.classList.remove("active"));
+		e.target.classList.add("active");
+		console.log(e.target.dataset);
+		colorMode = Number(e.target.dataset.colorcode);
+	});
+});
 
 updateCanvas();
