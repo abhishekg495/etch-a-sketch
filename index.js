@@ -2,6 +2,7 @@ const canvas = document.querySelector(".canvas");
 const menu = document.querySelector(".menu");
 const gameContainer = document.querySelector(".game-container");
 const gridSizeSlider = document.querySelector("#grid-size");
+const toggleGridLines = document.querySelector("#grid-lines");
 let pixels = document.querySelectorAll(".pixel");
 let gridSize = gridSizeSlider.value;
 
@@ -31,6 +32,10 @@ function createCanvas() {
 gridSizeSlider.addEventListener("change", () => {
 	gridSize = gridSizeSlider.value;
 	createCanvas();
+});
+
+toggleGridLines.addEventListener("click", () => {
+	pixels.forEach((pixel) => pixel.classList.toggle("no-border"));
 });
 
 createCanvas();

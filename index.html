@@ -7,8 +7,13 @@
         <h1>Etch-A-Sketch</h1>
         <div class="game-container">
             <div class="menu">
-                <label for="grid-size">Grid Size</label>
-                <input name="grid-size" type="range" id="grid-size" min="1" max="64" class="slider">
+
+                <div id="grid-size-wrapper">
+                    <label for="grid-size">Grid Size</label>
+                    <input name="grid-size" type="range" id="grid-size" min="1" max="64" class="slider">
+                </div>
+
+                <button id="grid-lines">Toggle Grid Lines</button>
             </div>
             <div class="canvas">
             </div>
