@@ -82,7 +82,6 @@ modeBtns.forEach((btn) => {
 	btn.addEventListener("click", (e) => {
 		modeBtns.forEach((btn) => btn.classList.remove("active"));
 		e.target.classList.add("active");
-		console.log(e.target.dataset);
 		colorMode = Number(e.target.dataset.colorcode);
 	});
 });

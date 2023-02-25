@@ -1,13 +1,17 @@
 *{
     box-sizing: border-box;
 }
+:root{
+	--dark:rgb(51,51,51);
+	--light:rgb(240,240,240);
+}
 body {
 	font-family: "Roboto", sans-serif;
 	display: flex;
 	justify-content: center;
 	align-items: center;
 	flex-direction: column;
-	background-color:rgb(205,205,205);
+	background-color:rgb(237,237,237);
 }
 
 .slider{
@@ -19,7 +23,6 @@ body {
 	width: 55%;
 	display: grid;
 	grid-template-columns: 1fr 2fr;
-	/* border: 1px solid red; */
 }
 
 .canvas {
@@ -32,11 +35,10 @@ body {
 	border-style: inherit;
 	border-color: inherit;
     aspect-ratio: 1/1;
-	background-color: white;;
+	background-color: white;
 }
 
 .menu {
-	/* border: 1px solid blue; */
 	display: flex;
 	flex-direction: column;
 	justify-content: space-between;
@@ -47,10 +49,15 @@ body {
 	padding: 1em;
 	border-radius:10px;
 	border-width: 1px;
-	background-color: white;
+	background-color: var(--light);
+	color: var(--dark);
+	transition: all 0.2s ease-in-out;
+}
+.menu button:hover{
+	transform: scale(1.05);
 }
 button.active{
-	background-color: rgb(50,50,50);
-	color:rgb(225,225,225);
+	background-color: var(--dark);
+	color:var(--light);
 }
 
