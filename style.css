@@ -2,7 +2,6 @@
     box-sizing: border-box;
 }
 body {
-    height: 100vh;
 	font-family: "Roboto", sans-serif;
 	display: flex;
 	justify-content: center;
@@ -10,14 +9,18 @@ body {
 	flex-direction: column;
 }
 
+#grid-size-wrapper{
+	/* border: 1px solid black; */
+}
 .slider{
 	display: block;
+	width: 100%;
 }
 
 .game-container {
+	width: 55%;
 	display: grid;
 	grid-template-columns: 1fr 2fr;
-	gap: 2em;
 	/* border: 1px solid red; */
 }
 
@@ -39,5 +42,7 @@ body {
 	display: flex;
 	flex-direction: column;
 	justify-content: space-between;
+	align-items: stretch;
+	padding: 0 1em;
 }
 
