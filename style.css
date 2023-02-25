@@ -25,16 +25,15 @@ body {
 }
 
 .canvas {
-	border: 1px solid black;
+	border-color: black;
+	border-style: solid;
 	display: grid;
     aspect-ratio: 1/1;
 }
 .pixel {
-	border: 1px solid black;
+	border-style: inherit;
+	border-color: inherit;
     aspect-ratio: 1/1;
-}
-.no-border{
-	border: 0px solid black;
 }
 
 .menu {
